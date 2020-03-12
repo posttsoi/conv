@@ -1,3 +1,4 @@
 .conv-env
 .idea
 .vscode
+.db.sqlite3

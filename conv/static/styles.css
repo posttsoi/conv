@@ -1,0 +1,86 @@
+body {
+  background-color: #505050;
+}
+
+.fade-in {
+  animation: FadeIn 2s;
+}
+
+@keyframes FadeIn {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  width: 760px;
+  height: 160px;
+  display: block;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+.box {
+  width: 380px;
+  height: 80px;
+}
+
+.left-box > box {
+  position: relative;
+  left: 0px;
+  top: 0px;
+  border-radius: 20px, 0px, 0px, 20px;
+  background: #FCFCFC;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.right-box > box {
+  position: relative;
+  right: 0px;
+  top: 0px;
+  border-radius: 0px, 20px, 20px, 0px;
+  background: #FCFCFC;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.bottom-box button > box {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  bottom: 0px;
+  border-radius: 0px, 0px, 20px, 20px;
+  background: #649D50;
+}
+
+.bottom-box button:hover > box {
+  background: #73C257;
+}
+
+.txtfld-blck {
+  color: #000000;
+}
+
+.txtfld-wht {
+  color: #FCFCFC;
+}
+
+.txtfld-gry {
+  color: #606060;
+}
+
+.slctr {
+  background: #FCFCFC;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.slctr-left > slctr {
+  position: relative;
+  left: 0px;
+}
+
+.slctr-right > slctr {
+  right: 0px;
+}
