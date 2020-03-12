@@ -8,19 +8,17 @@
   <div class="wrapper">
     <div class="left-box">
       <select class="slctr-left" name="set">
-        <option value="USD">USD</option>
-        <option value=EUR"">EUR</option>
-        <option value="PLN">PLN</option>
-        <option value="CZK">CZK</option>
+        {% for rate in rates %}
+        <option value={{rate.currency}}>{{rate.currency}}</option>
+        {%endfor%}
       </select>
       <input type="number" placeholder="ENTER AMOUNT"></input>
     </div>
     <div class="right-box">
       <select class="slctr-right" name="get">
-        <option value="USD">USD</option>
-        <option value=EUR"">EUR</option>
-        <option value="PLN">PLN</option>
-        <option value="CZK">CZK</option>
+        {% for rate in rates %}
+        <option value={{rate.currency}}>{{rate.currency}}</option>
+        {%endfor%}
         <textarea readonly></textarea>
       </select>
     </div>

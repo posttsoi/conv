@@ -5,5 +5,5 @@ from .models import ExchangeRates
 
 
 def home_page(request):
-    data = ExchangeRates.objects.all()
-    return render(request, 'convert/home_page.html', context={'data': data})
+    rates = ExchangeRates.objects.all()
+    return render(request, 'convert/home_page.html', context={'rates': rates})
