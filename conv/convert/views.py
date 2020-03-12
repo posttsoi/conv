@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-# Create your views here.
+
+from .models import ExchangeRates
 
 
 def home_page(request):
-    return render(request, 'convert/home_page.html')
+    data = ExchangeRates.objects.all()
+    return render(request, 'convert/home_page.html', context={'data': data})
