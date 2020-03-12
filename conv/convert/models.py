@@ -1,6 +1,6 @@
 from django.db import models
 import requests
-
+from decimal import Decimal
 
 def get_json_data():
     """get json with exchange rates"""
@@ -17,9 +17,21 @@ def update_data() -> None:
         ExchangeRates.objects.create(currency=f'{currency}', price=price)
 
 
+def convert(our_currency, desired_currency, n) -> Decimal:
+    """our_currency - price   in usd,
+       desired_currency - price second currency in usd,
+       n- how much we will convert
+    """
+    return Decimal(n)*desired_currency/our_currency
+
+
+def get_price(currency: str) -> Decimal:
+    return ExchangeRates.objects.get(currency=currency).price
+
+
 class ExchangeRates(models.Model):
     currency = models.CharField(max_length=20, db_index=True)
-    price = models.DecimalField(max_digits=20, decimal_places=10)
+    price = models.DecimalField(max_digits=20, decimal_places=6)
 
     def __str__(self) -> str:
         return f"{self.currency}=={self.price}"
