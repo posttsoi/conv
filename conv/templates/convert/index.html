@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>Converter</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Work+Sans:300,400,600&Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+
+<body>
+<form action="{% url 'convert' %}" method="post">
+  {%csrf_token%}
+  <div class="container">
+
+    <div class="box">
+      <select>
+        {% for rate in rates %}
+        <option value={{rate.currency}}>{{rate.currency}}</option>
+        {%endfor%}
+      </select>
+
+      <input type="float" size="28px" placeholder="ENTER AMOUNT"/>
+
+      <textarea readonly size="28px"></textarea>
+
+      <select class="right">
+        {% for rate in rates %}
+        <option value={{rate.currency}}>{{rate.currency}}</option>
+        {%endfor%}
+      </select>
+
+    </div>
+
+    <button type="button" name="button">CONVERT</button>
+
+  </div>
+</form>
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'js/fastclick.js' %}"></script>
+  <script src="{% static 'js/prism.js' %}"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('select:not(.ignore)').niceSelect();
+      FastClick.attach(document.body);
+    });
+  </script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-64633646-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</body>
+</html>
