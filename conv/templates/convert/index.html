@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  {% load static %}
 <head>
 
   <meta charset="utf-8">
@@ -9,12 +10,13 @@
 
   <link href='https://fonts.googleapis.com/css?family=Work+Sans:300,400,600&Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
 
 </head>
 
 <body>
-
+<form action="{% url 'convert' %}" method="post">
+  {%csrf_token%}
   <div class="container">
 
     <div class="box">
@@ -24,7 +26,7 @@
         {%endfor%}
       </select>
 
-      <input type="float" size="28px" placeholder="ENTER AMOUNT"></input>
+      <input type="float" size="28px" placeholder="ENTER AMOUNT"/>
 
       <textarea readonly size="28px"></textarea>
 
@@ -39,11 +41,11 @@
     <button type="button" name="button">CONVERT</button>
 
   </div>
-
-  <script src="js/jquery.js"></script>
-  <script src="js/jquery.nice-select.min.js"></script>
-  <script src="js/fastclick.js"></script>
-  <script src="js/prism.js"></script>
+</form>
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+  <script src="{% static 'js/fastclick.js' %}"></script>
+  <script src="{% static 'js/prism.js' %}"></script>
 
   <script>
     $(document).ready(function() {

@@ -2,6 +2,7 @@ from django.db import models
 import requests
 from decimal import Decimal
 
+
 def get_json_data():
     """get json with exchange rates"""
     url = 'https://openexchangerates.org/api/latest.json?app_id=d7720497b9c64663b4fe575400b66fd7'
