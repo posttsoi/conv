@@ -14,22 +14,22 @@
 </head>
 
 <body>
-<form action="{% url 'convert' %}" method="post">
+<form action="{% url 'home' %}" method="POST">
   {%csrf_token%}
   <div class="container">
 
     <div class="box">
-      <select>
+      <select name="your_currency">
         {% for rate in rates %}
         <option value={{rate.currency}}>{{rate.currency}}</option>
         {%endfor%}
       </select>
 
-      <input type="float" size="28px" placeholder="ENTER AMOUNT"/>
+      <input type="float" name="your_money" size="28px" placeholder="ENTER AMOUNT"/>
 
-      <textarea readonly size="28px"></textarea>
+      <textarea readonly size="28px">{{money}}</textarea>
 
-      <select class="right">
+      <select name="desired_currency" class="right">
         {% for rate in rates %}
         <option value={{rate.currency}}>{{rate.currency}}</option>
         {%endfor%}
@@ -37,7 +37,7 @@
 
     </div>
 
-    <button type="button" name="button">CONVERT</button>
+    <button type="submit" name="button" >CONVERT</button>
 
   </div>
 </form>

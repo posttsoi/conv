@@ -18,7 +18,7 @@ def update_data() -> None:
         ExchangeRates.objects.create(currency=f'{currency}', price=price)
 
 
-def convert(our_currency, desired_currency, n) -> Decimal:
+def convert_money(our_currency, desired_currency, n) -> Decimal:
     """our_currency - price   in usd,
        desired_currency - price second currency in usd,
        n- how much we will convert
