@@ -6,6 +6,6 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', home_page),
-    path('convert/', convert, name='convert'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('', home_page),
+                  path('convert/', convert, name='convert'),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
