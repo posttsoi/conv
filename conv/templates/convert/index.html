@@ -19,9 +19,9 @@
   <div class="container">
 
     <div class="box">
-      <select name="your_currency">
+     <select name="your_currency" id="your_currency">
         {% for rate in rates %}
-        <option value={{rate.currency}}>{{rate.currency}}</option>
+         <option value = {{rate}} selected>{{rate}}</option>
         {%endfor%}
       </select>
 
@@ -29,9 +29,9 @@
 
       <textarea readonly size="28px">{{money}}</textarea>
 
-      <select name="desired_currency" class="right">
+      <select name="desired_currency" id="desired_currency" class="right">
         {% for rate in rates %}
-        <option value={{rate.currency}}>{{rate.currency}}</option>
+        <option value = {{rate}} selected>{{rate}}</option>
         {%endfor%}
       </select>
 
